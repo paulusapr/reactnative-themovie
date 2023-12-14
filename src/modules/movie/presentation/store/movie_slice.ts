@@ -6,7 +6,7 @@ import {RootState} from '../../../core/presentation/store';
 import {Genre} from '../../domain/entities/Genre';
 import {getMovieGenresUseCaseResolved} from '../../infrastructure/usecases/get_movie_genres_use_case_resolved';
 
-interface MovieStateProps {
+export interface MovieStateProps {
   genres: Genre[];
   movies: Record<number, Movie[]>;
   selectedMovie: Movie | null;

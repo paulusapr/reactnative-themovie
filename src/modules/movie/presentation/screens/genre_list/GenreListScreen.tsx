@@ -19,7 +19,7 @@ import {RootStackScreenProps} from '../../../../core/presentation/navigation/typ
 
 const GenreListScreen = ({navigation}: RootStackScreenProps<'Genre'>) => {
   const dispatch = useAppDispatch();
-  const {genres} = useAppSelector(state => state.movie);
+  const data = useAppSelector(state => state.movie);
 
   useEffect(() => {
     dispatch(movieThunk.getMovieGenresThunk());
@@ -31,7 +31,7 @@ const GenreListScreen = ({navigation}: RootStackScreenProps<'Genre'>) => {
       <ScrollView>
         <FlatList
           contentContainerStyle={styles.genreList}
-          data={genres}
+          data={data?.genres}
           renderItem={({item}: ListRenderItemInfo<Genre>) => {
             return (
               <GenreItem
